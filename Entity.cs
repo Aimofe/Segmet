@@ -50,7 +50,6 @@ public abstract class Entity : MonoBehaviour
         faceRight = !faceRight;
     }
 
-    //public abstract void movimiento(float axisValue);
 
     //GETTER & SETTERS
     public float getVida()
