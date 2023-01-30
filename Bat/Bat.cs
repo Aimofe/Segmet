@@ -24,7 +24,7 @@ public class Bat : Enemy
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
         estado = 0;
-        //rb.gravityScale = 0;
+      
         PuedePerseguir = true;
         CambiarDirección();
         GameObject child = gameObject.transform.GetChild(0).gameObject;
@@ -55,9 +55,9 @@ public class Bat : Enemy
     {
         if (PuedePerseguir==true)
         {
-            //transform.position = jugador.transform.position;
+         
             direccion = jugador.transform.position - transform.position;
-            //transform.position = transform.position + (direccion.normalized * velocidadMovimiento) * Time.deltaTime;
+           
             Girar();
 
             if (direccion.magnitude < 0.2)//ha llegado al objetivo
@@ -118,16 +118,6 @@ public class Bat : Enemy
         }
     }
 
-    /*public override void hurtAnim(GameObject player)
-    {
-        animator.Play("Bat_Hurt");
-
-        rigidBody.AddForce(player.transform.position - transform.position * 15f, ForceMode2D.Impulse);
-
-        Time.timeScale = 0.4f;
-        StartCoroutine(timeController());
-        animator.Play("Bat_Idle");
-    }*/
     public override void hurtAnim()
     {
         animator.Play("Bat_Hurt");
@@ -145,15 +135,13 @@ public class Bat : Enemy
     {
         if (collision.gameObject.tag == "Player")
         {
-            //Debug.Log("daño");
+        
             collision.gameObject.GetComponent<Sejmet>().setDamage(danyo, this.gameObject,collision.gameObject);
             StartCoroutine("Wait"); 
         }
         else
         {
-            //Debug.Log("gira");
-
-            //CambiarDirección();
+          
             StartCoroutine("Iratras");
 
 
