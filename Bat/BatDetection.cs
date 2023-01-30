@@ -11,20 +11,11 @@ public class BatDetection : MonoBehaviour
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            //transform.position = jugador.transform.position;
-            //perseguir = true;
-            //Bat detec = GetComponent<Bat>();
-            //detec.estado = Bat.Estado.Perseguir;
             GameObject[] bats = GameObject.FindGameObjectsWithTag("Bat");
             GetComponentInParent<Bat>().estado = Bat.Estado.Perseguir;
 
@@ -33,9 +24,6 @@ public class BatDetection : MonoBehaviour
                 bats[i].GetComponentInParent<Bat>().estado = Bat.Estado.Perseguir;
             }
         }
-        //else if (collision.tag=="Bat")
-        //{
-        //    collision.gameObject.GetComponent<Bat>().estado= Bat.Estado.Perseguir;
-        //}
+        
     }
 }
